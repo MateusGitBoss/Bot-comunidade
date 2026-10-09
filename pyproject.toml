@@ -55,3 +55,4 @@ plugins = ["pydantic.mypy"]
 testpaths = ["tests"]
 asyncio_mode = "auto"
 addopts = "-ra --cov=bot --cov-report=term-missing"
+filterwarnings = ["ignore:.audioop. is deprecated:DeprecationWarning"]
