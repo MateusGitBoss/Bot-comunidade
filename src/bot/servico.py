@@ -2,11 +2,12 @@
 
 import logging
 from dataclasses import dataclass
+from datetime import UTC, datetime
 
 from bot.faq import BaseFaq
 from bot.ia import RESPOSTA_ERRO, AssistenteFaq, ErroIA
 from bot.limite import LimitadorUso
-from bot.repositorio import Repositorio, hash_usuario
+from bot.repositorio import Repositorio, ResumoUso, hash_usuario
 from bot.vendas import ClienteVendas, ErroVendas, formatar_compras
 
 log = logging.getLogger(__name__)
@@ -97,3 +98,8 @@ class ServicoBot:
     def recarregar_faq(self, faq: BaseFaq) -> int:
         self.faq = faq
         return len(faq.trechos)
+
+    async def resumo_hoje(self, agora: datetime | None = None) -> ResumoUso:
+        agora = agora or datetime.now(UTC)
+        inicio = agora.replace(hour=0, minute=0, second=0, microsecond=0)
+        return await self.repositorio.resumo_desde(inicio)
