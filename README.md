@@ -110,7 +110,7 @@ O ID do Discord é gravado como HMAC-SHA256 (`usuario_hash`): dá para contar pe
 
 ## Como este projeto foi construído
 
-Construído com o Claude Code como ferramenta de desenvolvimento, com cada mudança entrando por pull request. O roteiro de estudo em [`docs/ENTREVISTA.md`](docs/ENTREVISTA.md) explica cada decisão.
+Construído com o Claude Code como ferramenta de desenvolvimento, com cada mudança entrando por pull request revisado.
 
 ## Licença
 
